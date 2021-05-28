@@ -62,7 +62,27 @@ const StyledFiltersContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-    
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Balsamiq Sans', cursive;
+    :hover {
+        box-shadow: 9px 8px 15px -7px rgba(0,0,0,0.75);
+        cursor: pointer;
+        background-color: #add6bb;
+    }
+`;
+
+const StyledInput = styled.input`
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Balsamiq Sans', cursive;
+    width: 200px;
 `;
 
 const FishDisplayDiv = styled.div`
@@ -95,7 +115,6 @@ class App extends React.Component {
                 [event.target.name]: event.target.value,
                 
             })
-        
         }
     
     searchSubmit = (event) => {
@@ -140,24 +159,24 @@ class App extends React.Component {
                     <h4>Search for a fish by name!</h4>
                       <StyledForm>
                       
-                        <input 
+                        <StyledInput 
                             name="userSearch"
                             type="text"
                             placeholder="Enter your search here"
                             value={this.state.userSearch}
                             onChange={this.handleChange}>
-                        </input>
-                        <button 
+                        </StyledInput>
+                        <StyledButton 
                             type="submit"
                             onClick={this.searchSubmit}>Search
-                        </button>
+                        </StyledButton>
                       </StyledForm>
                       <h4>Or filter by location!</h4>
                 <StyledFiltersContainer>
-                    <button onClick={() => this.updateFishToShow("all")}> All </button>
-                    <button onClick={() => this.updateFishToShow("river")}> River Fish</button>
-                    <button onClick={() => this.updateFishToShow("pond")}> Pond Fish</button>
-                    <button onClick={() => this.updateFishToShow("sea")}> Sea Fish</button>
+                    <StyledButton onClick={() => this.updateFishToShow("all")}> All </StyledButton>
+                    <StyledButton onClick={() => this.updateFishToShow("river")}> River Fish</StyledButton>
+                    <StyledButton onClick={() => this.updateFishToShow("pond")}> Pond Fish</StyledButton>
+                    <StyledButton onClick={() => this.updateFishToShow("sea")}> Sea Fish</StyledButton>
                 </StyledFiltersContainer>
                 </StyledFormContainer>
                 <FishDisplayDiv>
